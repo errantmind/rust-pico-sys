@@ -18,7 +18,7 @@ pub mod ffi {
         name: *const c_char,
         name_len: size_t,
         value: *const c_char,
-        value_len: size_t
+        value_len: size_t,
     }
 
     /// A decoder for decoding chunked encoded data.
@@ -30,8 +30,9 @@ pub mod ffi {
         state: c_char,
     }
 
-    extern {
+    extern "C" {
         /// Parse a request, bit by bit.
+        #[inline(always)]
         pub fn phr_parse_request(
             buf_start: *const c_char,
             buf_len: size_t,
@@ -42,10 +43,11 @@ pub mod ffi {
             minor_version: *mut c_int,
             headers: *mut phr_header,
             num_headers: *mut size_t,
-            prev_buf_len: size_t
+            prev_buf_len: size_t,
         ) -> c_int;
 
         /// Parse a response, bit by bit.
+        #[inline(always)]
         pub fn phr_parse_response(
             buf_start: *const c_char,
             buf_len: size_t,
@@ -55,24 +57,25 @@ pub mod ffi {
             message_len: *mut size_t,
             headers: *mut phr_header,
             num_headers: *mut size_t,
-            prev_buf_len: size_t
+            prev_buf_len: size_t,
         ) -> c_int;
 
         /// Parse the headers, bit by bit.
+        #[inline(always)]
         pub fn phr_parse_headers(
             buf_start: *const c_char,
             buf_len: size_t,
             headers: *mut phr_header,
             num_headers: *mut size_t,
-            prev_buf_len: size_t
+            prev_buf_len: size_t,
         ) -> c_int;
 
         /// Decode a chunked reqest body, bit by bit.
+        #[inline(always)]
         pub fn phr_decode_chunked(
             decoder: *mut phr_chunked_decoder,
             buf: *mut c_char,
-            buf_len: *mut size_t
+            buf_len: *mut size_t,
         ) -> ssize_t;
     }
 }
-
