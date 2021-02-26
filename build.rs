@@ -11,5 +11,7 @@ fn main() {
         .flag("-funroll-loops")
         .flag("-msse4")
         //.flag("-flto")
+        .flag("-march=native")
+        .flag("-mtune=native")
         .compile("libpicohttpparser.a");
 }
