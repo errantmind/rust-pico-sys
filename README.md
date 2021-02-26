@@ -2,6 +2,10 @@
 
 > Bindings to the PicoHTTPParser.
 
+## errantmind fork
+
+I forked to enable compilation with sse4.2 and a couple of other optimizations. I also added a 'proper' submodule for `picohttpparser`
+
 ## Usage
 
 Use the crates.io repository; add this to your `Cargo.toml` along
@@ -19,4 +23,3 @@ pico-sys = "*"
 ## License
 
 MIT
-
