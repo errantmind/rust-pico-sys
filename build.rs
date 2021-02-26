@@ -6,8 +6,8 @@ fn main() {
     #[allow(deprecated)]
     cc::Build::new()
         .file("extern/picohttpparser/picohttpparser.c")
-        .opt_level_str(&"fast")
-        //.flag("-funroll-loops")
+        .opt_level(3)
+        .flag("-funroll-loops")
         //.flag("-msse4")
         .compile("libpico.a");
     // cc::compile_library(
