@@ -10,7 +10,7 @@ fn main() {
         .flag("-funroll-loops")
         .flag("-msse4")
         //.flag("-flto")
-        //.flag("-Ofast")
+        .flag("-Ofast")
         .compile("libpico.a");
     // cc::compile_library(
     //     "libpico.a",
