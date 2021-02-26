@@ -32,7 +32,6 @@ pub mod ffi {
 
     extern "C" {
         /// Parse a request, bit by bit.
-        #[inline(always)]
         pub fn phr_parse_request(
             buf_start: *const c_char,
             buf_len: size_t,
@@ -47,7 +46,6 @@ pub mod ffi {
         ) -> c_int;
 
         /// Parse a response, bit by bit.
-        #[inline(always)]
         pub fn phr_parse_response(
             buf_start: *const c_char,
             buf_len: size_t,
@@ -61,7 +59,6 @@ pub mod ffi {
         ) -> c_int;
 
         /// Parse the headers, bit by bit.
-        #[inline(always)]
         pub fn phr_parse_headers(
             buf_start: *const c_char,
             buf_len: size_t,
@@ -71,7 +68,6 @@ pub mod ffi {
         ) -> c_int;
 
         /// Decode a chunked reqest body, bit by bit.
-        #[inline(always)]
         pub fn phr_decode_chunked(
             decoder: *mut phr_chunked_decoder,
             buf: *mut c_char,
