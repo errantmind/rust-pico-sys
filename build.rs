@@ -1,10 +1,16 @@
 #![deny(warnings)]
 
-extern crate gcc;
+extern crate cc;
 
 fn main() {
     #[allow(deprecated)]
-    gcc::compile_library(
-        "libpico.a",
-        &["extern/picohttpparser/picohttpparser.c"]);
+    cc::Build::new()
+        .file("extern/picohttpparser/picohttpparser.c")
+        .opt_level_str(&"fast")
+        .flag("-funroll-loops")
+        .flag("-msse4")
+        .compile("libpico.a");
+    // cc::compile_library(
+    //     "libpico.a",
+    //     &["extern/picohttpparser/picohttpparser.c"]);
 }

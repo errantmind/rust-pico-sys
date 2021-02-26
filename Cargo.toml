@@ -11,8 +11,7 @@ license = "MIT"
 build = "build.rs"
 
 [build-dependencies]
-gcc = "*"
+cc = "*"
 
 [dependencies]
 libc = "*"
-
