@@ -30,6 +30,7 @@ pub mod ffi {
         state: c_char,
     }
 
+    #[link(name = "picohttpparser", kind = "static")]
     extern "C" {
         /// Parse a request, bit by bit.
         pub fn phr_parse_request(
