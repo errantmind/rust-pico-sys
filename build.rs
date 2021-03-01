@@ -7,7 +7,7 @@ fn main() {
         .opt_level_str(&"fast")
         .flag("-funroll-loops")
         .flag("-msse4")
-        //.flag("-flto")
+        .flag("-flto")
         .flag("-march=native")
         .compile("libpicohttpparser.a");
 }
