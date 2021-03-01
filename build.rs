@@ -1,9 +1,6 @@
-#![deny(warnings)]
-
 extern crate cc;
 
 fn main() {
-    #[allow(deprecated)]
     cc::Build::new()
         .file("extern/picohttpparser/picohttpparser.c")
         .include("extern/picohttpparser")
@@ -12,6 +9,5 @@ fn main() {
         .flag("-msse4")
         //.flag("-flto")
         .flag("-march=native")
-        .flag("-mtune=native")
         .compile("libpicohttpparser.a");
 }
